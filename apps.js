@@ -31,6 +31,7 @@ board.addEventListener('click', event => {
         score++
     event.target.remove()
     createRandomCircle()
+    
 })
 
 
@@ -78,12 +79,16 @@ function createRandomCircle() {
     const size = getRandomNumber(10, 60)
     const {width, height} = board.getBoundingClientRect ()
     const x = getRandomNumber(0, width-size)
-    const y = getRandomNumber(0, height-size)
+    const y = getRandomNumber(0, height - size)
     circle.classList.add('circle')
     circle.style.width = `${size}px`
     circle.style.height = `${size}px`
     circle.style.top = `${y}px`
     circle.style.left = `${x}px`
+    circle.style.background = getRandomColor()
+    
+
+   
     
     
     board.append(circle)
@@ -95,12 +100,10 @@ function getRandomNumber(min, max) {
 }
 
 
-function SetColor(element) {
-    const color = getRandomColor()
-    element.style.backgraundColor = color
-}
+
 function getRandomColor() {
     const index = Math.floor(Math.random() * colors.length)
     return colors [index]
     
 }
+
